@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //para los videos 
 
 
-const API_KEY = 'AIzaSyCq65PWPmxHiQLgCibDsXNUkLmgSwUj-4c';
+const API_KEY = '';
 
 const CHANNEL_ID = 'UCvNVqsaEd-TourvOQKuCNjQ';
 
