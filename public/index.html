@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoopp - Página Oficial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="Diseño_sin_título-removebg-preview (1) (1).png" alt="Hoopp Logo" class="logo" />
+    <h1>Hoopp</h1>
+    <nav>
+      <a href="#about">Sobre mí</a>
+      <a href="#videos">Videos</a>
+      <a href="#quiz">Quiz</a>
+      <a href="#suggestions">Sugerencias</a>
+      <a href="#contact">Contacto</a>
+      <a href="#discord">Discord</a>
+    </nav>
+  <div class="planet planet1"></div>
+  <div class="planet planet2"></div>
+  <div class="planet planet3"></div>
+  </header>
+
+  <section id="about">
+    <h2>Sobre el canal</h2>
+    <p>Subo Genshin impact, pero pronto más juegos.</p>
+  </section>
+
+  <section id="videos">
+    <h2>Ultimos videos</h2>
+    <div id="video-grid" class="video-grid">
+    </div>
+
+  </section>
+
+  <section id="quiz">
+    <h2>🎮 Quiz Semanal - ¿Cuánto sabes?</h2>
+    <div id="quiz-container">
+      <div id="question-container"></div>
+      <div id="answers-container"></div>
+      <button id="next-btn" style="display:none;">Siguiente</button>
+    </div>
+
+    <div id="result-container" style="display:none;">
+      <h3>Tu puntaje: <span id="score"></span>/5</h3>
+      <input id="player-name" type="text" placeholder="Tu nombre para el podio" maxlength="15" />
+      <button id="save-score-btn">Guardar puntaje</button>
+    </div>
+
+    <div id="leaderboard-container">
+      <h3>Top puntajes</h3>
+      <ol id="leaderboard-list"></ol>
+    </div>
+  </section>
+
+
+  <section id="suggestions">
+    <h2>💡 Sugiere una idea para un video</h2>
+    <form id="suggestion-form">
+      <textarea id="suggestion-text" maxlength="3000" placeholder="Tu idea aquí (máx. 500 palabras)..."></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="saved-suggestions">
+      <h3>📁 Ideas guardadas:</h3>
+      <ul id="suggestion-list"></ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contacto</h2>
+    <p>Email: formax69@gmail.com</p>
+    <p>Twitter: <a href="https://twitter.com/hoopp4510">@hoopp4510</a></p>
+  </section>
+
+  <section id="discord">
+    <h2>💬 Únete a nuestro Discord</h2>
+    <iframe src="https://discord.com/widget?id=1316231772106915891&theme=dark" width="350" height="500"
+      allowtransparency="true" frameborder="0"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </section>
+
+  <script src="js/script.js"></script>
+  <script src="js/juego.js"></script>
+</body>
+
+</html>
