@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const suggestionText = document.getElementById('suggestion-text');
 
   const API_URL = 'https://hoopp-web1.onrender.com/api/suggestions';
-
   function displaySuggestions(suggestions) {
     suggestionList.innerHTML = '';
     suggestions.forEach(suggestion => {
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
- - 1 + totalPages) % totalPages;
-  showPage(currentPage);
-}
+
+
+
 
