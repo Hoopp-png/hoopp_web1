@@ -73,11 +73,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 const API_KEY = 'AIzaSyCq65PWPmxHiQLgCibDsXNUkLmgSwUj-4c';
-
 const CHANNEL_ID = 'UCvNVqsaEd-TourvOQKuCNjQ';
+
+let currentPage = 0;
+let totalPages = 0; // la inicializamos para actualizarla después
 
 async function fetchTopVideos() {
   const videoContainer = document.getElementById("video-grid");
+
+  if (!videoContainer) {
+    console.error("No se encontró el contenedor #video-grid");
+    return; // Salir para no causar error
+  }
+
   videoContainer.innerHTML = '<p>Cargando videos...</p>';
 
   try {
@@ -94,56 +102,59 @@ async function fetchTopVideos() {
     const dataVideos = await resVideos.json();
 
     videoContainer.innerHTML = '';
-    
-  
-    const carouselButtons = document.createElement('div');
-    carouselButtons.className = 'carousel-buttons';
-    carouselButtons.innerHTML = `
-      <button class="carousel-btn" onclick="prevPage()">&lt;</button>
-      <button class="carousel-btn" onclick="nextPage()">&gt;</button>
-    `;
-    videoContainer.parentElement.insertBefore(carouselButtons, videoContainer.nextSibling);
 
-    
+    // Crear botones del carrusel una sola vez si no existen
+    if (!document.querySelector('.carousel-buttons')) {
+      const carouselButtons = document.createElement('div');
+      carouselButtons.className = 'carousel-buttons';
+      carouselButtons.innerHTML = `
+        <button class="carousel-btn" onclick="prevPage()">&lt;</button>
+        <button class="carousel-btn" onclick="nextPage()">&gt;</button>
+      `;
+      videoContainer.parentElement.insertBefore(carouselButtons, videoContainer.nextSibling);
+    }
+
     const videos = dataVideos.items;
-    const pages = Math.ceil(videos.length / 2);
-    
-    for (let i = 0; i < pages; i++) {
+
+    totalPages = Math.ceil(videos.length / 2); // Actualizar totalPages según los videos
+
+    // Limpiar videos por si hay algo anterior
+    videoContainer.innerHTML = '';
+
+    for (let i = 0; i < totalPages; i++) {
       const page = document.createElement('div');
       page.className = `video-page ${i === 0 ? '' : 'hidden'}`;
       page.dataset.page = i;
-      
+
       const pageVideos = videos.slice(i * 2, (i + 1) * 2);
       pageVideos.forEach(item => {
         const videoId = item.snippet.resourceId.videoId;
         const iframe = document.createElement("iframe");
         iframe.src = `https://www.youtube.com/embed/${videoId}`;
-        iframe.allowFullscreen = true;
+        iframe.setAttribute("allowfullscreen", "");  // Corregido allowfullscreen
+        iframe.width = "320";  // Opcional: tamaño fijo para mejor diseño
+        iframe.height = "180";
+        iframe.frameBorder = "0";
         page.appendChild(iframe);
       });
-      
+
       videoContainer.appendChild(page);
     }
-   } catch (err) {
-      console.error('Error cargando videos:', err);
-      videoContainer.innerHTML = `
-        <div style="text-align: center; padding: 20px;">
-          <p>No se pudieron cargar los videos del canal.</p>
-          <p>Puedes ver los videos directamente en el canal de YouTube:</p>
-          <a href="https://www.youtube.com/@hoopp4510" target="_blank">Ver Canal de YouTube</a>
-        </div>
-      `;
-    }
+  } catch (err) {
+    console.error('Error cargando videos:', err);
+    videoContainer.innerHTML = `
+      <div style="text-align: center; padding: 20px;">
+        <p>No se pudieron cargar los videos del canal.</p>
+        <p>Puedes ver los videos directamente en el canal de YouTube:</p>
+        <a href="https://www.youtube.com/@hoopp4510" target="_blank" rel="noopener noreferrer">Ver Canal de YouTube</a>
+      </div>
+    `;
   }
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   fetchTopVideos();
-
-
 });
-
-let currentPage = 0;
-const totalPages = Math.ceil(12 / 2); 
 
 function showPage(pageNum) {
   const pages = document.querySelectorAll('.video-page');
