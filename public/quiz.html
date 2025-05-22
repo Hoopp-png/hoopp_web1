@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Semanal</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Quiz Semanal</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+    </nav>
+  </header>
+
+  <section id="quiz">
+    <h2>🎮 ¿Cuánto sabes?</h2>
+    <div id="quiz-container">
+      <div id="question-container"></div>
+      <div id="answers-container"></div>
+      <button id="next-btn" style="display:none;">Siguiente</button>
+    </div>
+
+    <div id="result-container" style="display:none;">
+      <h3>Tu puntaje: <span id="score"></span>/5</h3>
+      <input id="player-name" type="text" placeholder="Tu nombre para el podio" maxlength="15" />
+      <button id="save-score-btn">Guardar puntaje</button>
+    </div>
+
+    <div id="leaderboard-container">
+      <h3>Top puntajes</h3>
+      <ol id="leaderboard-list"></ol>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Hoopp. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="js/juego.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
