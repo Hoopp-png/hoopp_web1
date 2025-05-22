@@ -19,7 +19,6 @@
         <a href="quiz.html">Quiz</a>
         <a href="sugerencias.html">Sugerencias</a>
         <a href="jupg.html">Minigame</a>    
-         <a href="hoopphell.html">Minigame</a>   
       </nav>
     
     </div>
