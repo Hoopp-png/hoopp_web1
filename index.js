@@ -1,56 +1,61 @@
-const express = require('express');
-const app = express();
-const { MongoClient } = require('mongodb');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hoopp - Página Oficial</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="Diseño_sin_título-removebg-preview (1) (1).png" alt="Hoopp Logo" class="logo" />
+      <h1>Hoopp</h1>
+      <nav>
+        <a href="#about">Sobre mí</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Contacto</a>
+        <a href="#discord">Discord</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="sugerencias.html">Sugerencias</a>
+        <a href="jupg.html">Minigame</a>    
+         <a href="hoopphell.html">Minigame</a>   
+      </nav>
+    
+    </div>
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+    <div class="planet planet3"></div>
+    <a href="https://discord.gg/xrG9RArEtr" target="_blank" class="discord-button">Discord</a>
+  </header>
 
-const MONGO_URI = "mongodb+srv://kozato:waza777@kozato.tyukxmb.mongodb.net/?retryWrites=true&w=majority";
-const PORT = process.env.PORT || 3000;
-app.use(express.json());
-app.use(express.static('public'));
+  <section id="about">
+    <h2>Sobre el canal</h2>
+    <p>Subo Genshin impact, pero pronto más juegos.</p>
+  </section>
 
-const client = new MongoClient(MONGO_URI, {
-  tls: true,
-  tlsAllowInvalidCertificates: false,
-});
+  <section id="videos">
+    <h2>Últimos videos</h2>
+    <div id="video-grid" class="video-grid"></div>
+  </section>
 
-let db;
+  <section id="contact">
+    <h2>📬 Contacto</h2>
+    <p>Email: formax69@gmail.com</p>
+    <p>Twitter: <a href="https://twitter.com/hoopp4510">@hoopp4510</a></p>
+  </section>
 
+  <section id="discord">
+    <h2>💬 Únete a nuestro Discord</h2>
+    <iframe src="https://discord.com/widget?id=1316231772106915891&theme=dark" width="350" height="500"
+      allowtransparency="true" frameborder="0"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+  </section>
 
-client.connect()
-  .then(() => {
-    db = client.db("kozato");
-    console.log('✅ Conectado a MongoDB Atlas');
+  <footer>
+    <p>&copy; 2025 Hoopp. Todos los derechos reservados.</p>
+  </footer>
 
-
-    app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Servidor corriendo en http://0.0.0.0:${PORT}`);
-    });
-  })
-  .catch(err => {
-    console.error('❌ Error conectando a MongoDB:', err);
-  });
-
-
-// Ruta para obtener sugerencias
-app.get('/api/suggestions', async (req, res) => {
-  try {
-    const suggestions = await db.collection('suggestions').find().toArray();
-    res.json(suggestions);
-  } catch (err) {
-    console.error('Error al obtener sugerencias:', err);
-    res.status(500).json([]);
-  }
-});
-
-// Ruta para guardar sugerencias
-app.post('/api/suggestions', async (req, res) => {
-  const { text } = req.body;
-  if (!text || typeof text !== 'string') return res.status(400).json({ error: 'Texto inválido' });
-
-  try {
-    await db.collection('suggestions').insertOne({ text, date: new Date().toISOString() });
-    res.json({ message: 'Sugerencia guardada' });
-  } catch (err) {
-    console.error('❌ Error al guardar sugerencia:', err);
-    res.status(500).json({ error: 'No se pudo guardar' });
-  }
-});
+  <script src="js/script.js"></script>
+</body>
+</html>
