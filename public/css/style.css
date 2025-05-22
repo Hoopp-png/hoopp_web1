@@ -8,6 +8,26 @@ header {
   position: relative;
 }
 
+.discord-button {
+  background: linear-gradient(145deg, #5865F2, #4e5cd1);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(88, 101, 242, 0.6);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 1rem;
+  border: 2px solid #8892ff;
+}
+
+.discord-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(88, 101, 242, 1);
+  background: linear-gradient(145deg, #6f7bff, #5865F2);
+}
+
 .logo-container {
   display: flex;
   align-items: center;
