@@ -3,7 +3,7 @@ const app = express();
 const { MongoClient } = require('mongodb');
 const axios = require('axios'); 
 
-const MONGO_URI = "mongodb+srv://kozato:waza777@kozato.tyukxmb.mongodb.net/?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=true";
+const MONGO_URI = "";
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
