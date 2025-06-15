@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const suggestionList = document.getElementById('suggestion-list');
   const suggestionText = document.getElementById('suggestion-text');
 
-  const API_URL = 'https://0121d0ee-e631-4d3c-a990-a9b06bad924b-00-3qxpke97cf24e.kirk.replit.dev/api/suggestions';
+  const API_URL = 'https://hoopp-web1.onrender.com/sugerencias.html/api/suggestions';
 
   function displaySuggestions(suggestions) {
     suggestionList.innerHTML = '';
