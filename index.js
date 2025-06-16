@@ -3,7 +3,7 @@ const app = express();
 const { MongoClient } = require('mongodb');
 const axios = require('axios'); 
 
-const MONGO_URI = "mongodb+srv://kozato:waza777@kozato.tyukxmb.mongodb.net/?retryWrites=true&w=majority&tls=true&tlsAllowInvalidCertificates=true";
+const MONGO_URI = "";
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
@@ -17,7 +17,7 @@ const client = new MongoClient(MONGO_URI, {
 let db;
 
 
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1375151095600382044/F_Dr25i27IVw-JhKQ4sanq4sVomiC9CKAp-gUqezAOBZp0VNJpBVdkuQ4zIghe19mYiA';
+const DISCORD_WEBHOOK_URL = 'https://discord.A';
 
 client.connect()
   .then(() => {
